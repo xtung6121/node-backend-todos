@@ -1031,12 +1031,12 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.47.0.tgz#5478fdf443ff8158f9de171c704ae45308696c7d"
   integrity sha512-P6omY1zv5MItm93kLM8s2vr1HICJH8v0dvddDhysbIuZ+vcjOHg5Zbkf1mTkcmi2JA9oBG2anOkRnW8WJTS8Og==
 
-"@hapi/hoek@^9.0.0":
+"@hapi/hoek@^9.0.0", "@hapi/hoek@^9.3.0":
   version "9.3.0"
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.3.0.tgz#8368869dcb735be2e7f5cb7647de78e167a251fb"
   integrity sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ==
 
-"@hapi/topo@^5.0.0":
+"@hapi/topo@^5.1.0":
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/@hapi/topo/-/topo-5.1.0.tgz#dc448e332c6c6e37a4dc02fd84ba8d44b9afb012"
   integrity sha512-foQZKJig7Ob0BMAYBfcJk8d77QtOe7Wo4ox7ff1lQYoNNAb6jwcY1ncdoy2e9wQZzvNy7ODZCYJkK8kzmcAnAg==
@@ -1134,10 +1134,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@sideway/address@^4.1.3":
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/@sideway/address/-/address-4.1.4.tgz#03dccebc6ea47fdc226f7d3d1ad512955d4783f0"
-  integrity sha512-7vwq+rOHVWjyXxVlR76Agnvhy8I9rpzjosTESvmhNeXOXdZZB15Fl+TI9x1SiHZH5Jv2wTGduSxFDIaq0m3DUw==
+"@sideway/address@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@sideway/address/-/address-4.1.5.tgz#4bc149a0076623ced99ca8208ba780d65a99b9d5"
+  integrity sha512-IqO/DUQHUkPeixNQ8n0JA6102hT9CmaljNTPmQ1u8MEhBo/R4Q8eKLN/vGZxuebwOroDB4cbpjheD4+/sKFK4Q==
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
@@ -2338,14 +2338,14 @@ isobject@^3.0.1:
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha512-WhB9zCku7EGTj/HQQRz5aUQEUeoQZH2bWcltRErOpymJ4boYE6wL9Tbr23krRPSZ+C5zqNSrSw+Cc7sZZ4b7vg==
 
-joi@17.10.2:
-  version "17.10.2"
-  resolved "https://registry.yarnpkg.com/joi/-/joi-17.10.2.tgz#4ecc348aa89ede0b48335aad172e0f5591e55b29"
-  integrity sha512-hcVhjBxRNW/is3nNLdGLIjkgXetkeGc2wyhydhz8KumG23Aerk4HPjU5zaPAMRqXQFc0xNqXTC7+zQjxr0GlKA==
+joi@^17.10.2:
+  version "17.12.1"
+  resolved "https://registry.yarnpkg.com/joi/-/joi-17.12.1.tgz#3347ecf4cd3301962d42191c021b165eef1f395b"
+  integrity sha512-vtxmq+Lsc5SlfqotnfVjlViWfOL9nt/avKNbKYizwf6gsCfq9NYY/ceYRMFD8XDdrjJ9abJyScWmhmIiy+XRtQ==
   dependencies:
-    "@hapi/hoek" "^9.0.0"
-    "@hapi/topo" "^5.0.0"
-    "@sideway/address" "^4.1.3"
+    "@hapi/hoek" "^9.3.0"
+    "@hapi/topo" "^5.1.0"
+    "@sideway/address" "^4.1.5"
     "@sideway/formula" "^3.0.1"
     "@sideway/pinpoint" "^2.0.0"
 
