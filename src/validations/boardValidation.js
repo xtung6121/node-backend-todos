@@ -10,7 +10,7 @@ const createNew = async (req, res, next) => {
   Và thông thường trong thực tế, điều tốt nhất cho hệ thống là hãy luôn validate dữ liệu ở cả BE và FE.
   */
   const correctCondition = Joi.object({
-    title: Joi.string().required().min(3).max(5).trim().strict().message({
+    title: Joi.string().required().min(3).max(256).trim().strict().message({
       'any.required': 'Title is required {xuantung}',
       'string.empty': 'Title is not allowed to be empty {xuantung}',
       'string.max': 'Title length must be less than or equal to {{5}} characters long {xuantung}',
@@ -28,7 +28,7 @@ const createNew = async (req, res, next) => {
     await correctCondition.validateAsync(req.body, { ebortEarly: false })
 
     // Validate dữ liệu xong xuôi hợp lệ thì cho request đi tiếp sang controller
-    // next()
+    next()
     res.status(StatusCodes.CREATED).json({ message: 'POST form Validation: API get list boards' })
 
   } catch (error) {
