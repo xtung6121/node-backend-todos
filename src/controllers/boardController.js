@@ -1,25 +1,19 @@
 import { StatusCodes } from 'http-status-codes'
-
+import { boardService } from '~/services/boardService'
 
 const createNew = async (req, res, next) => {
   try {
-    console.log('req.body', req.body)
-    console.log('req.query', req.query)
-    console.log('req.params', req.params)
+    // console.log('req.body', req.body)
+    // console.log('req.query', req.query)
+    // console.log('req.params', req.params)
 
     // Điều hướng dữ liệu sang thằng service
-    throw new Error('Xuantung test error')
-
+    // throw new ApiError(StatusCodes.BAD_GATEWAY, 'Xuantung test error')
+    const createdBoard = await boardService.createNew(req.body)
     // Có kết quả thì trả về phía client
-    // res.status(StatusCodes.CREATED).json({ message: 'POST form Controller: API create new boards' })
+    res.status(StatusCodes.CREATED).json(createdBoard)
 
-  } catch (error) {
-    // console.log(error)
-    next(error)
-    // res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-    //   errors: new Error(error).message
-    // })
-  }
+  } catch (error) { next(error) }
 }
 
 export const boardController = {
