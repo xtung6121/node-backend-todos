@@ -1,5 +1,6 @@
 import Joi from 'joi'
 import { StatusCodes } from 'http-status-codes'
+import ApiError from '~/utils/ApiError'
 
 const createNew = async (req, res, next) => {
   /*
@@ -11,32 +12,27 @@ const createNew = async (req, res, next) => {
   */
   const correctCondition = Joi.object({
     title: Joi.string().required().min(3).max(256).trim().strict().message({
-      'any.required': 'Title is required {xuantung}',
-      'string.empty': 'Title is not allowed to be empty {xuantung}',
-      'string.max': 'Title length must be less than or equal to {{5}} characters long {xuantung}',
-      'string.min': 'Title length must be at least {{3}} characters long {xuantung}',
-      'string.trim': 'Title must not have leading or trailing whitespace {xuantung}'
+      'any.required': 'Title is required (xuantung)',
+      'string.empty': 'Title is not allowed to be empty (xuantung)',
+      'string.max': 'Title length must be less than or equal to {{5}} characters long (xuantung)',
+      'string.min': 'Title length must be at least {{3}} characters long (xuantung)',
+      'string.trim': 'Title must not have leading or trailing whitespace (xuantung)'
     }),
     description: Joi.string().required().min(3).max(256).trim().strict()
   })
 
   try {
-
-    console.log('req.body:', req.body)
-
     // Chỉ định ebortEarly có nhiều lỗi trả về tất cả lỗi
     await correctCondition.validateAsync(req.body, { ebortEarly: false })
 
     // Validate dữ liệu xong xuôi hợp lệ thì cho request đi tiếp sang controller
     next()
-    res.status(StatusCodes.CREATED).json({ message: 'POST form Validation: API get list boards' })
+    // res.status(StatusCodes.CREATED).json({ message: 'POST form Validation: API get list boards' })
 
   } catch (error) {
-    console.log(new Error(error).message)
-    // const customError = new ()
-    res.status(StatusCodes.UNPROCESSABLE_ENTITY).json({
-      errors: new Error(error).message
-    })
+    const errorMessage = new Error(error).message
+    const customError = new ApiError(StatusCodes.UNPROCESSABLE_ENTITY, errorMessage)
+    next(customError)
   }
 }
 
