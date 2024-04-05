@@ -1,9 +1,11 @@
 /* eslint-disable no-console */
 import express from 'express'
-import { CONNECT_DB, GET_DB } from '~/config/mongodb'
+import cors from 'cors'
+import { CONNECT_DB } from '~/config/mongodb'
 import { env } from '~/config/environment'
 import { APIs_V1 } from '~/routes/v1'
-import { StatusCodes } from 'http-status-codes'
+import { corsOptions } from '~/config/cors'
+// import { StatusCodes } from 'http-status-codes'
 import { errorHandlingMiddleware } from './middlewares/errorHandlingMiddleware'
 
 
@@ -12,6 +14,9 @@ const START_SERVER = () => {
 
   // Enable req.body json data
   app.use(express.json())
+
+  // Xử lý cors
+  app.use(cors(corsOptions))
 
   app.use('/v1', APIs_V1)
 
